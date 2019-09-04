@@ -1,9 +1,10 @@
 import React from 'react';
+
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 
-const todos = [
+const todoData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -24,15 +25,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos
+      todos:todoData,
     }
   }
   render() {
+    console.log(this.state)
     return (
       <div>
         <h1>Karen's TodoList</h1>
-        <TodoList />
-        <TodoForm />
+        {/* <TodoList todos={this.state.todos}/>
+        <TodoForm /> */}
         
       </div>
     );
