@@ -4,7 +4,7 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 
-const todoData = [
+const todos = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -25,16 +25,40 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos:todoData,
+      todos
     }
   }
+
+  addTodo = (event, entry) => {
+    event.preventDefault();
+    const adding = this.state.todos.filter( 
+      todo => todo.name===entry
+      )
+      if (adding.length===0){
+        const newTodo = {
+          name:entry,
+          id: Date.now(),
+          completed: false
+        }
+        this.setState({
+          todos: [...this.state.todos, newTodo]
+        })
+      }
+  }
+
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState ({
+      todos:this.state.filter(todo => !todo.completed)
+    })
+  }
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div>
         <h1>Karen's TodoList</h1>
        {/* <TodoList 
-        todoData={this.state.todoData}
+        todos={this.state.todos}
        /> */}
        <TodoForm />
         
