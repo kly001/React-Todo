@@ -6,16 +6,22 @@ import Todo from "./Todo"
 
 
 const TodoList = props => {
-    return(
-        <div>
-            {props.todoData.map(todo => {
-                return <Todo
-                key={todo.id}
-                todo={todo}
-                />
-            })}
-            <button>Clear Completed</button>
+    return (
+        <div className="todo-list">
+               {props.todoData.map(todo =>{
+                   return <Todo
+                   key={todo.name}
+                   todo={todo}
+                   />
+               } )}
+                <button className="clear">
+                   Clear Completed
+                </button>
+
+
         </div>
     )
+
+
 }
 export default TodoList;

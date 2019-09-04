@@ -14,8 +14,8 @@ const todoData = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
-  }
-]
+  },
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -33,8 +33,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>Karen's TodoList</h1>
-        {/* <TodoList todos={this.state.todos}/>
-        <TodoForm /> */}
+       {/* <TodoList 
+        todoData={this.state.todoData}
+       /> */}
+       <TodoForm />
         
       </div>
     );
