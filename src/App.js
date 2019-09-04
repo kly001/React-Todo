@@ -57,9 +57,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>Karen's TodoList</h1>
-       {/* <TodoList 
+       <TodoList 
         todos={this.state.todos}
-       /> */}
+       />
        <TodoForm />
         
       </div>
