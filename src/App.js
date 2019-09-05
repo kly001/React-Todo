@@ -32,7 +32,7 @@ class App extends React.Component {
 
   toggleTodo = (id) => {
     console.log("From App:Toggle working")
-    console.log(id)
+    // console.log(id)
     this.setState({
       todos: this.state.todos.map(todo => {
         if(todo.id === id) {
