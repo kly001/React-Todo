@@ -30,16 +30,8 @@ class App extends React.Component {
     }
   }
 
-
-  clearCompleted = event => {
-    event.preventDefault();
-    this.setState ({
-      todos:this.state.filter(todo => !todo.completed)
-    })
-  };
-
   toggleTodo = (id) => {
-    // console.log("Toggle working")
+    console.log("From App:Toggle working")
     console.log(id)
     this.setState({
       todos: this.state.todos.map(todo => {
@@ -64,6 +56,12 @@ class App extends React.Component {
       todos:[...this.state.todos, newTodo]
     })
   }
+
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    });
+  };
 
 
 

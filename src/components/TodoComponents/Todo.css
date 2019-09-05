@@ -1,3 +1,7 @@
+h1 {
+    color:navy;
+}
+
 .todo-list {
     /* display: flex;
     flex-flow: row wrap;
