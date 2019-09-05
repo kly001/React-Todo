@@ -4,7 +4,8 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 
-const todos = [
+
+const todosData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -25,26 +26,23 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos
+      todos:todosData
     }
   }
 
+ 
   addTodo = (event, entry) => {
     event.preventDefault();
-    const adding = this.state.todos.filter( 
-      todo => todo.name === entry
-      )
-      if (adding.length===0){
-        const newTodo = {
-          name:entry,
-          id: Date.now(),
-          completed: false
-        }
-        this.setState({
-          todos: [...this.state.todos, newTodo]
-        })
-      }
+    const newTodo = {
+      name: entry,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
   }
+
 
   clearCompleted = event => {
     event.preventDefault();
@@ -53,31 +51,33 @@ class App extends React.Component {
     })
   };
 
-  toggleTodo = id => {
+  toggleTodo = todoId => {
     this.setState({
       todos: this.state.todos.map(todo => {
-        if(todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          }
-        } else {
-          return todo
+        if(todo.id === todoId) {
+          return {...todo, completed: !todo.completed};
         }
+        return todo
       })
-    })
-  }
+    });
+  };
+
+
+
   render() {
-    // console.log(this.state)
+    console.log(this.state)
     return (
-      <div>
-       <TodoForm 
-          addTodo={this.addTodo} />
+      <div className="App">
+        <div className="Header">
         <h1>Karen's TodoList</h1>
+        <TodoForm 
+          addTodo={this.addTodo} />
+        </div>
+       
        <TodoList 
           todos={this.state.todos}
           toggleTodo = {this.toggleTodo}
-          clearCompleted = {this.clearCompleted}
+          clearCompleted={this.clearCompleted}
        />
       </div>
     );
