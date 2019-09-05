@@ -4,7 +4,7 @@
     justify-content: space-between; */
     width: 100%;
     margin: 0 auto;
-    border: 2px solid orangered;
+    /* border: 2px solid orangered; */
   }
 
 
@@ -17,6 +17,22 @@
   }
   
   .todo.completed {
-    border: 5px solid magenta;
+    border: 3px solid magenta;
     text-decoration: line-through;
+  }
+
+  form {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  form > input {
+    border: 0;
+    padding: 6px 0;
+    font-size: 1rem;
+    width: 240px;
+    outline: 0;
+    color: white;
+    border-bottom: 1px solid navy;
+    margin-right: 8px;
   }

@@ -30,19 +30,6 @@ class App extends React.Component {
     }
   }
 
- 
-  addTodo = (event, entry) => {
-    event.preventDefault();
-    const newTodo = {
-      name: entry,
-      id: Date.now(),
-      completed: false
-    }
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    })
-  }
-
 
   clearCompleted = event => {
     event.preventDefault();
@@ -66,6 +53,17 @@ class App extends React.Component {
       })
     });
   };
+
+  addTodo = todoName => {
+    const newTodo = {
+      task: todoName,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      todos:[...this.state.todos, newTodo]
+    })
+  }
 
 
 
