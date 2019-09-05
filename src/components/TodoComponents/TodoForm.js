@@ -5,16 +5,18 @@ class TodoForm extends React.Component {
         super();
         this.state = {
             entry:""
-        }
+        };
     }
 
     handleChanges = event => {
-        this.setState({entry:event.target.value})
+        this.setState({
+            [event.target.name]: event.target.value
+        })
         console.log(this.state.entry)
     }
 
     submitEntry = event => {
-        this.props.addEntry(event,this.state.entry)
+        this.props.addTodo(event,this.state.entry)
         this.setState({entry: ""})
     };
 

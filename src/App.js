@@ -32,7 +32,7 @@ class App extends React.Component {
   addTodo = (event, entry) => {
     event.preventDefault();
     const adding = this.state.todos.filter( 
-      todo => todo.name===entry
+      todo => todo.name === entry
       )
       if (adding.length===0){
         const newTodo = {
@@ -51,17 +51,34 @@ class App extends React.Component {
     this.setState ({
       todos:this.state.filter(todo => !todo.completed)
     })
+  };
+
+  toggleTodo = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if(todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    })
   }
   render() {
     // console.log(this.state)
     return (
       <div>
+       <TodoForm 
+          addTodo={this.addTodo} />
         <h1>Karen's TodoList</h1>
        <TodoList 
-        todos={this.state.todos}
+          todos={this.state.todos}
+          toggleTodo = {this.toggleTodo}
+          clearCompleted = {this.clearCompleted}
        />
-       <TodoForm />
-        
       </div>
     );
   }
