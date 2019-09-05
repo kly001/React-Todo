@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
-
+import "./components/TodoComponents/Todo.css"
 
 
 const todosData = [
@@ -51,13 +51,18 @@ class App extends React.Component {
     })
   };
 
-  toggleTodo = todoId => {
+  toggleTodo = (id) => {
+    // console.log("Toggle working")
+    console.log(id)
     this.setState({
       todos: this.state.todos.map(todo => {
-        if(todo.id === todoId) {
-          return {...todo, completed: !todo.completed};
-        }
+        if(todo.id === id) {
+          return {
+            ...todo, 
+            completed: !todo.completed};
+        } else {
         return todo
+        }
       })
     });
   };
@@ -65,7 +70,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state)
+    console.log("From App:",this.state)
     return (
       <div className="App">
         <div className="Header">

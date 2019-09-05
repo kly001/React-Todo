@@ -1,0 +1,22 @@
+.todo-list {
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; */
+    width: 100%;
+    margin: 0 auto;
+    border: 2px solid orangered;
+  }
+
+
+.todo {
+    border: 3px dotted navy;
+    width: 45%;
+    text-align: left;
+    margin: 4px 0;
+    padding-left: 8px;
+  }
+  
+  .todo.completed {
+    border: 5px solid magenta;
+    text-decoration: line-through;
+  }

@@ -12,7 +12,7 @@ class TodoForm extends React.Component {
         this.setState({
             todoName: event.target.value
         })
-        console.log("todoName:",event.target.value)
+        console.log("From TodoFrom =>todoName:",event.target.value)
     }
 
     submitEntry = event => {
